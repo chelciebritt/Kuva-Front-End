@@ -16,23 +16,25 @@
 
 <body>
   <header>
-    <nav class="grey darken-4" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo grey-text text-darken-1">KUVA</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a class="grey-text text-darken-1 waves-purple" href="#">Sign Out</a></li>
-        </ul>
-        <ul id="nav-mobile" class="side-nav">
-          <li><a href="#">Sign Out</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"></a>
-      </div>
-    </nav>
+    <div class="navbar-fixed">
+      <nav class="grey darken-4" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="#" class="brand-logo grey-text text-darken-1 ">KUVA</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a class="grey-text text-darken-1 waves-purple" href="#">Sign Out</a></li>
+          </ul>
+          <ul id="nav-mobile" class="side-nav">
+            <li><a href="#">Sign Out</a></li>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse"></a>
+        </div>
+      </nav>
+    </div>
   </header>
 
 
   <main>
-
+    <h4>(If you know of a better way to do the email portion, feel free.  I was unable to get Materialize Chips working, and also the dynamic options didn't seem to work with Materialize.)</h4>
     <div class="row">
       <form class="col s12 m5 l5 push-l3">
         <h5 class="center topBottomPad">Create New Event</h5>
@@ -49,42 +51,125 @@
             <input id="icon_prefix" type="text" class="validate datepicker">
             <label for="icon_prefix">End Date</label>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="email" type="email" class="validate">
-              <label for="email">Add participants</label>
-            </div>
-            <a class="waves-effect btn-flat">+ Add Additional Contributors</a>
-          </div>
-        </div>
-      </form>
-    </div>
 
-    <ul id="slide-out" class="side-nav fixed gradientSideNav">
-      <li>
-        <div class="user-view">
-          <div class="background">
-            <img src="images/office.jpg">
+
+
+          <div class="row">
+            <div class="input-field col s12 ">
+              <input id="email" type="email" class="validate">
+              <label for="email">Invite friends by email</label>
+            </div>
           </div>
-          <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-          <a href="#!name"><span class="white-text name">John Doe</span></a>
-          <a href="#!email"><span class="white-text email">user@email.com</span></a>
+
+          <div class="container">
+            <div id="UserInput" class="row">
+
+              <div id="GroupAggro" class="col s12 m10 l10 offset-l1 z-depth-2">
+                <div id="TableHeader" class="TableHeader col l6">
+
+                  <a id="AddGroup" class="btn-floating waves-effect waves-light red"><i class="material-icons small">add</i></a>
+                  <h5 class="">Add a Meetup.com Group Link</h5>
+                </div>
+
+                <!--Editable Group Table-->
+                <div id="Table" class="table-editable">
+                  <table class="table">
+                    <tr>
+                      <th class="hide">Group</th>
+                    </tr>
+                    <tr class="GroupPosted">
+                      <td id="EnterGroupHere" contenteditable="true" placeholder="Example: https://www.meetup.com/Denver-Tech-Design-Community/"></td>
+                      <td>
+                        <a id="RemoveGroup" class="btn-floating waves-effect waves-light red"><i class="material-icons small">remove</i></a>
+                      </td>
+                    </tr>
+                    <!-- Hidden Table Row that is activated when hitting Add Link button -->
+                    <tr class="hide GroupPosted">
+                      <td id="EnterGroupHere" contenteditable="true" placeholder="Example: https://www.meetup.com/Denver-Tech-Design-Community/"></td>
+                      <td>
+                        <a id="RemoveGroup" class="btn-floating waves-effect waves-light red"><i class="material-icons small">remove</i></a>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+              </div>
+              <div class="ButtonDiv">
+                <a id="GetData" class="waves-effect waves-light btn col l4 offset-l4 red">Create List of Events</a>
+              </div>
+      </form>
+      </div>
+
+
+      <!--Div containing all Event Information-->
+      <div class="row">
+        <div id="LinkAggro" class="col s12 m11 l12 hide">
+          <div class="EventList z-depth-2">
+            <div class="col s12 m12 l12 z-depth-2 Event waves-effect waves-light-blue white hide">
+              <div class="">
+                <div class="row GroupInfo">
+                  <div class="GroupPhoto col l2">
+                    <img src="" alt="" class="PhotoLink">
+                    <p class="MissingPhoto"></p>
+                  </div>
+                  <div class="GroupName col l10">
+                    <h5 class=""></h5>
+                  </div>
+                </div>
+                <div class="EventInfo row">
+                  <div class="col l12 EventName">
+                    <h5></h5>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class=" EventTimeDate col l4">
+                    <h6>Date and Time:</h6>
+                    <p></p>
+                  </div>
+                  <div class="EventLocation col l4">
+                    <h6>Location:</h6>
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-      </li>
-      <li><a href="#!"><i class="material-icons">add</i>Create New Event</a></li>
-      <li>
-        <div class="divider"></div>
-      </li>
-      <li><a class="subheader">Albums</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-    </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse show-on-large"></a>
+        <div class=" ButtonDiv">
+          <a id="GetSelectedEvents" class="waves-effect waves-light btn col l4 offset-l4 hide red">Create Shareable Link</a>
+        </div>
+      </div>
+
+
+
+      </div>
+      <ul id="slide-out" class="side-nav fixed gradientSideNav">
+        <li>
+          <div class="user-view">
+            <div class="background">
+              <img src="images/office.jpg">
+            </div>
+            <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+            <a href="#!name"><span class="white-text name">John Doe</span></a>
+            <a href="#!email"><span class="white-text email">user@email.com</span></a>
+          </div>
+        </li>
+        <li><a href="#!"><i class="material-icons">add</i>Create New Event</a></li>
+        <li>
+          <div class="divider"></div>
+        </li>
+        <li><a class="subheader">Albums</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse show-on-large"></a>
   </main>
 
   <footer class="page-footer grey darken-4">
