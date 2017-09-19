@@ -11,85 +11,46 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link href="css/sidenavstyle.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 <body>
-  <nav class="grey darken-4" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo grey-text text-darken-1">KUVA</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a class="grey-text text-darken-1 waves-purple" href="#">Sign Out</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-
-        <li><a href="#">Sign Out</a></li>
-
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="dashboard.html">Login</a></li>
-        <li><a href="">Create an account</a></li>
-
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
+  <header>
+    <nav class="grey darken-4" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="index.html" class="brand-logo grey-text text-darken-1">KUVA</a>
+    </nav>
+  </header>
 
 
   <main>
-
-    <body>
-      <div class="section"></div>
-      <main>
-        <center>
-          <p>kuva logo</p>
-          <div class="section"></div>
-
-          <h5 class="indigo-text">Login with Instagram</h5>
-          <div class="section"></div>
-
-          <div class="container">
-            <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
-
-              <form class="col s12" method="post">
-                <div class='row'>
-                  <div class='col s12'>
-                  </div>
-                </div>
-
-                <div class='row'>
-                  <div class='input-field col s12'>
-                    <input class='validate' type='email' name='email' id='email' />
-                    <label for='email'>Enter your email</label>
-                  </div>
-                </div>
-
-                <div class='row'>
-                  <div class='input-field col s12'>
-                    <input class='validate' type='password' name='password' id='password' />
-                    <label for='password'>Enter your password</label>
-
-
-                    <br />
-                    <center>
-                      <div class='row'>
-                        <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
-                      </div>
-                    </center>
-              </form>
-              </div>
-              </div>
-              <a href="#!">Create account</a>
-        </center>
-
-        <div class="section"></div>
-        <div class="section"></div>
-      </main>
-
-
+    <form class="container" method="POST">
+      <h5 class="center topBottomPad">Login To Instagram</h5>
+      <div class='row'>
+        <div class='input-field col s12 m4 l4 push-l4'>
+          <input class='validate' type='email' name='email' id='email' />
+          <label for='email'>Enter your email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class='input-field col s12 m4 l4 push-l4'>
+          <input class='validate' type='password' name='password' id='password' />
+          <label for='password'>Enter your password</label>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col s12 m4 l4 push-l4'> <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+        </div>
+      </div>
+    </form>
+    <div class="container">
+      <br><br><br>
+      <h5>dev mode navigation</h5>
+      <a class="waves-effect waves-light btn" href='index.html'>index</a>
+      <a class="waves-effect waves-light btn" href='login.html'>login</a>
+      <a class="waves-effect waves-light btn" href='album.html'>album</a>
+      <a class="waves-effect waves-light btn" href='createevent.html'>create event</a>
+      <a class="waves-effect waves-light btn" href='dashboard.html'>dashboard</a>
+    </div>
   </main>
 
   <footer class="page-footer grey darken-4">
@@ -107,6 +68,6 @@
   <script src="js/init.js"></script>
   <script src="js/app.js"></script>
 
-  </body>
+</body>
 
 </html>
