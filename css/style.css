@@ -103,3 +103,21 @@ footer.page-footer {
 .btn-flat {
   text-transform: none;
 }
+
+.moreUsers {
+  border-radius: 20px;
+  background-color: #3C53A4;
+  color: white;
+}
+
+.moreUsers:hover {
+  background-color: black;
+}
+
+.submitNewEvent:hover {
+  background-color: black;
+}
+
+button:hover {
+  background-color: black !important;
+}
