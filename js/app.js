@@ -15,6 +15,7 @@ $(function() {
         var imgUrl = src.images.standard_resolution.url
 
         $("#picDiv").append(`
+          
                           <div class="col s12 m6 l4 ">
                             <div class="card">
                               <div class="card-image">
@@ -22,6 +23,15 @@ $(function() {
                               </div>
                             </div>
                           </div>
+
+                          <div class="col s12 m6 l4 ">
+                            <div class="card">
+                              <div class="card-image">
+                                <img class="materialboxed" src=${imgUrl}>
+                              </div>
+                            </div>
+                          </div>
+
                         `)
                       });
                     });
