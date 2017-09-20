@@ -11,6 +11,7 @@ $(document).ready(function() {
   // Adding email fields dynamically
   var counter = 1;
   var limit = 15;
+
   function addInput(divName) {
     if (counter == limit) {
       alert("You have reached the limit of adding " + counter + " inputs");
