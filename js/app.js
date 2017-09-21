@@ -24,57 +24,56 @@ $(document).ready(function() {
   }
   $(function() {
     var API = 'https://kuvafundb.herokuapp.com/api/sidenav/events/1'
-
     $.get(API)
       .then(function(data) {
-
         for (var i = 0; i < data.length; i++) {
           var album = data[i].name
           var tripid = data[i].trip_id
           $("#albumnames").append(`
             <li class="viewalbum" id="${tripid}"> ${album}</li>
       `)
-
         }
-
       });
-
   })
   //gets trip name/date
+  var startdate;
+  var enddate;
   $("#albumnames").on('click', '.viewalbum', function() {
     event.preventDefault()
-    console.log(this.id)
-    var API = "https://kuvafundb.herokuapp.com/api/event/eventdata/" + this.id;
-    console.log(API)
+    var tripid = this.id
+    var API = "https://kuvafundb.herokuapp.com/api/event/eventdata/" + tripid;
     $.get(API)
       .then(function(data) {
         var response = data[0]
-        console.log(response);
         var eventName = response.name;
-        var startdate = moment(JSON.parse(response.start_date)).format('l');
-        var enddate = moment(JSON.parse(response.start_date)).format('l');
-
+        startdate = response.start_date;
+        enddate = response.end_date;
+        var eventstartdate = moment(JSON.parse(response.start_date)).format('l');
+        var eventenddate = moment(JSON.parse(response.end_date)).format('l');
         $("#eventname").text(`
               ${eventName}
             `)
         $("#daterange").text(`
-              ${startdate} - ${enddate}
+              ${eventstartdate} - ${eventenddate}
               `)
       })
+    getUserPhotos(tripid)
   })
   //loop through the user keys retrieved from database
-  $(function() {
+  function appendPhotos(userid) {
     var API = 'https://api.instagram.com/v1/users/self/media/recent/?access_token='
-    var API_KEY = '634657769.f866f3d.214922cf24f84b52bdcb85eee0ca8be1';
-    $.getJSON(API + API_KEY + '&callback=?', function(insta) {
+    $.getJSON(API + userid + '&callback=?', function(insta) {
+      console.log(insta.data)
       $.each(insta.data, function(photos, src) {
-        if (photos === 20) {
-          return false;
-        }
-        var imgUrl = src.images.standard_resolution.url
-
-        $("#picDiv").append(`
-
+        var postTime = insta.data[photos].created_time + "000";
+        console.log(startdate)
+        console.log(enddate)
+        if (postTime >= startdate && postTime <= enddate) {
+          // if (photos === 20) {
+          //   return false;
+          // }
+          var imgUrl = src.images.standard_resolution.url
+          $("#picDiv").append(`
                            <div class="col s12 m6 l4 ">
                              <div class="card">
                                <div class="card-image">
@@ -82,9 +81,23 @@ $(document).ready(function() {
                                </div>
                              </div>
                            </div>
-
                          `)
+        }
       });
     });
-  })
+  }
+
+  //Add photos to album
+  function getUserPhotos(tripid) {
+    var API = 'https://kuvafundb.herokuapp.com/api/event/profilepics/' + tripid;
+    $.get(API)
+      .then(function(data) {
+        console.log(data)
+        for (var i = 0; i < data.length; i++) {
+          appendPhotos(data[i].instagram_key)
+        }
+      })
+  }
 })
+
+//POST request from create album page
