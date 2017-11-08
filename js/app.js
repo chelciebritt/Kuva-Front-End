@@ -51,6 +51,7 @@ $(document).ready(function() {
     var enddate;
     $("#albumnames").on('click', '.viewalbum', function() {
       $('#picDiv').empty()
+      $('#profilepictures').empty()
       event.preventDefault()
       var tripid = this.id
       var API = "https://kuvafundb.herokuapp.com/api/event/eventdata/" + tripid;
@@ -93,6 +94,7 @@ $(document).ready(function() {
                   `)
                 }
               });
+              $('.materialboxed').materialbox()
             });
           }
 
@@ -102,6 +104,9 @@ $(document).ready(function() {
             $.get(API)
             .then(function(data) {
               for (var i = 0; i < data.length; i++) {
+                $('#profilepictures').append(`
+                  <img id="ProPic" class="ProfilePic circle" src="${data[i].profile_pic}">
+                  `)
                 appendPhotos(data[i].instagram_key)
               }
             })

@@ -1,14 +1,17 @@
 const url = 'https://kuvafundb.herokuapp.com'
+
 $(() => {
   authorizeUser()
   $('form.login').submit(logIn)
 })
+
 function authorizeUser() {
   var token = localStorage.getItem('token');
   if (token) {
     location.href = "./dashboard.html"
   }
 }
+
 function logIn(event) {
   event.preventDefault()
   const username = $('input[name=username').val()
