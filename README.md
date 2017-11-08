@@ -16,11 +16,11 @@ KUVA allows a user to login, create an album by setting a title and most importa
 
 ## Images
 
-![Screenshot1](images/Screenshot1.png "screenshots of app")
-![Screenshot2](images/Screenshot2.png "screenshots of app")
-![Screenshot3](images/Screenshot3.png "screenshots of app")
-![Screenshot4](images/Screenshot4.png "screenshots of app")
-![Screenshot5](images/Screenshot5.png "screenshots of app")
+![Screenshot1](images/screenshot1.png "screenshots of app")
+![Screenshot2](images/screenshot2.png "screenshots of app")
+![Screenshot3](images/screenshot3.png "screenshots of app")
+![Screenshot4](images/screenshot4.png "screenshots of app")
+![Screenshot5](images/screenshot5.png "screenshots of app")
 
 
 
